@@ -39,12 +39,12 @@
 - [**1.5.1. Conceptos básicos de Rust**](rust.md#152-conceptos-básicos-de-rust)
 - [**1.5.2. Conceptos únicos de Rust**](rust.md#153-conceptos-avanzados)
 
-### 6. Virtualización del Sistema Operativo:
+<!-- ### 6. Virtualización del Sistema Operativo:
 
 - **1.6.1. Hipervisores**
 - **1.6.2. VMs y MicroVMs**
 - **1.6.3. Conceptos básicos de contenedores**
-- **1.6.4. Ventajas y desventajas de los contenedores**
+- **1.6.4. Ventajas y desventajas de los contenedores** -->
 
 ## Recursos
 
