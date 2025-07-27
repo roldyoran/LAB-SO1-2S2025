@@ -1,6 +1,6 @@
 # Instrucciones y Scripts para Gestión de Contenedores
 
-Este repositorio contiene scripts y guías para la instalación, gestión y uso de contenedores con containerd, Docker y Zot. A continuación, se presenta un índice con una breve descripción de cada archivo:
+A continuación, se presenta un índice con una breve descripción de cada archivo:
 
 ## Índice de Archivos
 

@@ -68,6 +68,6 @@
     sudo ctr images list
     ```
 
-    Listo ya puedes conectarte con tu Registro de Contenedores privados de ZOT en tu maquina virtual, ahora puedes dirigirste a ``ctr-instrucciones.md`` para ver los comandos basicos de ctr (ctr = cliente de consola de containerd) para que puedas ejecutar tus contenedores con tus imagenes propias.
+    Listo ya puedes conectarte con tu Registro de Contenedores privados de ZOT en tu maquina virtual, ahora puedes dirigirste a ``containerd-instrucciones.md`` para ver los comandos basicos de ctr (ctr = cliente de consola de containerd) para que puedas ejecutar tus contenedores con tus imagenes propias.
 
 
