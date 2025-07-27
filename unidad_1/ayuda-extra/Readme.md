@@ -16,7 +16,7 @@ A continuación, se presenta un índice con una breve descripción de cada archi
 - [zot-intrucciones.md](./zot-intrucciones.md):
   Guía paso a paso para instalar y utilizar Zot como registro privado de contenedores, incluyendo la configuración de Docker y el manejo de imágenes.
 
-- [ctr-instrucciones.md](./ctr-instrucciones.md):
+- [containerd-instrucciones.md](./containerd-instrucciones.md):
   Manual de comandos básicos para el uso de `ctr` (cliente de containerd), desde la gestión de imágenes hasta la ejecución y administración de contenedores.
 
 ---
