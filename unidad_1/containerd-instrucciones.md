@@ -55,7 +55,7 @@ sudo ctr run -t --rm docker.io/library/hello-world:latest my-hello
 Para ejecutar un contenedor en segundo plano (modo *detached*) y que utilice la red del host, usa el siguiente comando. Debes reemplazar `<IP_VM_DOCKER>` por la IP correspondiente de tu máquina virtual o servidor donde está el registro de imágenes:
 
 ```bash
-sudo ctr run -d --tty --plain-http <IP_VM_DOCKER>:5000/fiber-api-go:v1 my-fiber-api-go
+sudo ctr run -d --net-host <IP_VM_DOCKER>:5000/fiber-api-go:v1 my-fiber-api-go
 ```
 
 - `-d`: ejecuta el contenedor en segundo plano (detached).
