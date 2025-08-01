@@ -9,7 +9,9 @@
 - [**1.4.4. Dockerfile y Multistages**](contenedores.md#44-dockerfile-y-multistages)
 - [**1.4.5. Network y volumenes de contenedores**](contenedores.md#45-network-y-volumenes-de-contenedores)
 - [**1.4.6. Docker Compose**](contenedores.md#46-docker-compose)
+
 - [**1.4.7. Containerd `ctr`**](./containerd-instrucciones.md)
+- [**1.4.8. Virt-Manager: gestión de VMs**](./virtmanager-comandos-terminal.md)
 
 
 ### 2. Creación de Scripts en Bash
