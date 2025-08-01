@@ -68,7 +68,7 @@
 
 ## Extras: Ayuda para gestión de contenedores y scripts útiles
 
-En la carpeta `ayuda-extra` encontrarás recursos adicionales para la administración de contenedores y automatización de tareas en Linux. A continuación, un resumen de los archivos y su utilidad:
+En la carpeta `pr1/recursos-adicionales` encontrarás recursos adicionales para la administración de contenedores y automatización de tareas en Linux. A continuación, un resumen de los archivos y su utilidad:
 
 ### Scripts y manuales incluidos
 
@@ -76,10 +76,25 @@ En la carpeta `ayuda-extra` encontrarás recursos adicionales para la administra
 - **archivo-de-ejecucion.sh**: Script interactivo para descargar imágenes desde un registro privado y ejecutar contenedores con containerd (`ctr`).
 - **limpiar-cache.sh**: Script para limpiar la caché del sistema, paquetes innecesarios y archivos temporales.
 - **zot-intrucciones.md**: Guía para instalar y usar Zot como registro privado de contenedores, incluyendo configuración de Docker y manejo de imágenes.
-- **ctr-instrucciones.md**: Manual de comandos básicos para el uso de `ctr` (cliente de containerd), desde gestión de imágenes hasta administración de contenedores.
+- **containerd-instrucciones.md**: Manual de comandos básicos para el uso de `ctr` (cliente de containerd), desde gestión de imágenes hasta administración de contenedores.
+
+### Ejemplo de uso de scripts
+
+- Para instalar containerd:
+  ```bash
+  bash pr1/recursos-adicionales/instalar-containerd.sh
+  ```
+- Para limpiar la caché del sistema:
+  ```bash
+  bash pr1/recursos-adicionales/limpiar-cache.sh
+  ```
+- Para ejecutar un contenedor desde un registro privado:
+  ```bash
+  bash pr1/recursos-adicionales/archivo-de-ejecucion.sh
+  ```
 
 ### Guías rápidas
-- Consulta `ayuda-extra/zot-intrucciones.md` para levantar tu propio registro privado de imágenes con Zot y configurarlo en Docker.
-- Consulta `ayuda-extra/ctr-instrucciones.md` para comandos esenciales de containerd y manejo de imágenes/containers.
+- Consulta `pr1/recursos-adicionales/zot-intrucciones.md` para levantar tu propio registro privado de imágenes con Zot y configurarlo en Docker.
+- Consulta `pr1/recursos-adicionales/containerd-instrucciones.md` para comandos esenciales de containerd y manejo de imágenes/containers.
 
 Cada archivo contiene instrucciones detalladas y comentarios para facilitar su uso. Se recomienda revisarlos antes de ejecutar los scripts en tu entorno.
