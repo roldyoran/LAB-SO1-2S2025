@@ -1,8 +1,26 @@
 
-# Comandos basicos de ctr
+# ¿Qué es containerd?
+
+**containerd** es un runtime de contenedores de nivel industrial que maneja el ciclo de vida completo de los contenedores en un sistema host. Es el componente principal que Docker utiliza internamente, pero también puede usarse de forma independiente.
+
+Características principales de containerd:
+- **Runtime estándar**: Implementa las especificaciones OCI Runtime y Image
+- **Gestión de imágenes**: Descarga, almacena y gestiona imágenes de contenedores
+- **Ciclo de vida**: Crea, ejecuta, detiene y elimina contenedores
+- **Snapshots**: Maneja sistemas de archivos en capas para los contenedores
+- **Networking**: Proporciona capacidades básicas de red para contenedores
+
+**ctr** es la herramienta de línea de comandos que viene con containerd, similar a como `docker` es el cliente para Docker Engine.
+
+
 ---
 
+# Comandos basicos de ctr (CONTAINERD)
 ### 🔧 1. **Verificar containerd está corriendo (opcional si tienes dudas)**
+
+> **¿Aún no tienes instalado containerd?**
+> Consulta el script de instalación aquí: [instalar-containerd.sh](../recursos-adicionales/instalar-containerd.sh)
+
 
 ```bash
 sudo systemctl status containerd

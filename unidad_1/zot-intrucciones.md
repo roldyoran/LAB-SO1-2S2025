@@ -1,6 +1,21 @@
 
 # Instrucciones para usar Zot como registro de contenedores
 
+## ¿Qué es Zot?
+
+**Zot** es un registro de contenedores de código abierto y liviano que implementa la especificación OCI (Open Container Initiative) Distribution. Es una alternativa moderna y eficiente a otros registros como Docker Registry, diseñado para ser:
+
+- **Ligero y rápido**: Consume pocos recursos del sistema
+- **Seguro**: Incluye características de seguridad avanzadas como verificación de firmas
+- **Compatible con OCI**: Funciona con cualquier cliente compatible con Docker/OCI
+- **Fácil de configurar**: Configuración mínima requerida para funcionar
+
+Zot es ideal para desarrollo local, CI/CD pipelines y despliegues en entornos donde necesitas un registro privado de contenedores.
+
+---
+
+# Comando para usar ZOT
+
 1. **Iniciar el registro Zot en tu VM con DOCKER**
 
     Ejecuta el siguiente comando para iniciar un registro Zot en segundo plano, exponiendo el puerto 5000:
@@ -68,6 +83,6 @@
     sudo ctr images list
     ```
 
-    Listo ya puedes conectarte con tu Registro de Contenedores privados de ZOT en tu maquina virtual, ahora puedes dirigirste a ``ctr-instrucciones.md`` para ver los comandos basicos de ctr (ctr = cliente de consola de containerd) para que puedas ejecutar tus contenedores con tus imagenes propias.
+    Listo ya puedes conectarte con tu Registro de Contenedores privados de ZOT en tu maquina virtual, ahora puedes dirigirste a ``containerd-instrucciones.md`` para ver los comandos basicos de ctr (ctr = cliente de consola de containerd) para que puedas ejecutar tus contenedores con tus imagenes propias.
 
 
