@@ -51,11 +51,49 @@ Este es el [enlace](https://www.docker.com/) de la **página oficial** de Docker
 Para instalar Docker en Linux, se recomienda seguir la documentación oficial de Docker, ya que la instalación puede variar dependiendo de la distribución de Linux que se esté utilizando.
 
 Platform |	x86_64 / amd64
------------- | -------------
 [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)	 |✅
 Debian	|✅
 Red Hat Enterprise Linux (RHEL) |	✅
 [Fedora](https://docs.docker.com/desktop/install/fedora/)	| ✅
+
+#### Instalación de Docker en Ubuntu (oficial)
+
+Sigue estos pasos para instalar Docker Engine en Ubuntu (x86_64/amd64, arm64, armhf, s390x, ppc64le):
+
+**1. Desinstala versiones antiguas (si existen):**
+```bash
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
+**2. Instala dependencias y agrega el repositorio oficial:**
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+**3. Instala Docker Engine y complementos:**
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+**4. Verifica la instalación:**
+```bash
+sudo docker run hello-world
+```
+Si ves un mensaje de bienvenida, Docker está correctamente instalado.
+
+Para más detalles y otras distribuciones, consulta la [documentación oficial de Docker](https://docs.docker.com/engine/install/ubuntu/).
 
 
 ### 4.2.3 Instalación de Docker Windows
