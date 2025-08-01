@@ -18,6 +18,10 @@ Características principales de containerd:
 # Comandos basicos de ctr (CONTAINERD)
 ### 🔧 1. **Verificar containerd está corriendo (opcional si tienes dudas)**
 
+> **¿Aún no tienes instalado containerd?**
+> Consulta el script de instalación aquí: [instalar-containerd.sh](../recursos-adicionales/instalar-containerd.sh)
+
+
 ```bash
 sudo systemctl status containerd
 ```
