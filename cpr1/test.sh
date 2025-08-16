@@ -13,18 +13,18 @@ check_command() {
 if [ "$1" == "1" ]; then
     echo "Verificando runtime de contenedores VM1 y VM2..."
     if check_command "docker"; then
-        echo "❌ Docker está instalado."
+        echo "❌ Docker está instalado en la VM cuando no deberia. ❌"
     elif check_command "containerd"; then
-        echo "✅ Containerd está instalado (pero no Docker)."
+        echo "✅ Containerd está instalado (pero no Docker). ✅"
     else
-        echo "❌ No se encontró ni Docker ni Containerd."
+        echo "❌ No se encontró ni Docker ni Containerd. ❌"
     fi
 elif [ "$1" == "2" ]; then
     echo "Verificando runtime de contenedores... VM3"
     if check_command "docker"; then
-        echo "✅ Docker está instalado."
+        echo "✅ Docker está instalado. ✅"
     else
-        echo "❌ No se encontró ni Docker ni Containerd."
+        echo "❌ No se encontró ni Docker ni Containerd. ❌"
     fi
 else
     echo "Uso: $0 <1|2>"
