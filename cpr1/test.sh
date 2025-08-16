@@ -1,21 +1,34 @@
 #!/bin/bash
 
-# Verificar si se proporcionó un argumento
-if [ $# -eq 0 ]; then
+# Función para verificar si un comando está instalado
+check_command() {
+    if command -v "$1" &> /dev/null; then
+        return 0  # verdadero (está instalado)
+    else
+        return 1  # falso (no está instalado)
+    fi
+}
+
+# Procesar argumentos
+if [ "$1" == "1" ]; then
+    echo "Verificando runtime de contenedores..."
+    if check_command "docker"; then
+        echo "❌ Docker está instalado."
+    elif check_command "containerd"; then
+        echo "✅ Containerd está instalado (pero no Docker)."
+    else
+        echo "❌ No se encontró ni Docker ni Containerd."
+    fi
+elif [ "$1" == "2" ]; then
+    echo "Verificando runtime de contenedores..."
+    if check_command "docker"; then
+        echo "✅ Docker está instalado."
+    else
+        echo "❌ No se encontró ni Docker ni Containerd."
+    fi
+else
     echo "Uso: $0 <1|2>"
+    echo "  1 = Verificar Docker/Containerd VM1 y VM2"
+    echo "  2 = Verificar Docker VM3"
     exit 1
 fi
-
-# Evaluar el argumento
-case "$1" in
-    1)
-        echo "¡Hola!"
-        ;;
-    2)
-        echo "¡Adiós!"
-        ;;
-    *)
-        echo "Opción no válida. Usa 1 o 2."
-        exit 1
-        ;;
-esac
