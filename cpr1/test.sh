@@ -11,20 +11,20 @@ check_command() {
 
 # Procesar argumentos
 if [ "$1" == "1" ]; then
-    echo "\nVerificando runtime de contenedores VM1 y VM2...\n"
+    echo -e "\nVerificando runtime de contenedores VM1 y VM2...\n"
     if check_command "docker"; then
-        echo "❌ Docker está instalado en la VM cuando no deberia. ❌\n"
+        echo -e "❌ Docker está instalado en la VM cuando no deberia. ❌\n"
     elif check_command "containerd"; then
-        echo "✅ Containerd está instalado (pero no Docker). ✅\n"
+        echo -e "✅ Containerd está instalado (pero no Docker). ✅\n"
     else
-        echo "❌ No se encontró ni Docker ni Containerd. ❌\n"
+        echo -e "❌ No se encontró ni Docker ni Containerd. ❌\n"
     fi
 elif [ "$1" == "2" ]; then
-    echo "\n\nVerificando runtime de contenedores... VM3\n"
+    echo -e "\n\nVerificando runtime de contenedores... VM3\n"
     if check_command "docker"; then
-        echo "✅ Docker está instalado. ✅\n"
+        echo -e "✅ Docker está instalado. ✅\n"
     else
-        echo "❌ No se encontró ni Docker ni Containerd. ❌\n"
+        echo -e "❌ No se encontró ni Docker ni Containerd. ❌\n"
     fi
 else
     echo "Uso: $0 <1|2>"
