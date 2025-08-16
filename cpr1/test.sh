@@ -11,7 +11,7 @@ check_command() {
 
 # Procesar argumentos
 if [ "$1" == "1" ]; then
-    echo "Verificando runtime de contenedores..."
+    echo "Verificando runtime de contenedores VM1 y VM2..."
     if check_command "docker"; then
         echo "❌ Docker está instalado."
     elif check_command "containerd"; then
@@ -20,7 +20,7 @@ if [ "$1" == "1" ]; then
         echo "❌ No se encontró ni Docker ni Containerd."
     fi
 elif [ "$1" == "2" ]; then
-    echo "Verificando runtime de contenedores..."
+    echo "Verificando runtime de contenedores... VM3"
     if check_command "docker"; then
         echo "✅ Docker está instalado."
     else
