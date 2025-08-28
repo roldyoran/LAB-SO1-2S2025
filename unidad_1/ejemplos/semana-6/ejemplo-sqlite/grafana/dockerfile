@@ -1,0 +1,10 @@
+FROM grafana/grafana:11.0.0
+
+# Instalar plugin de SQLite
+RUN grafana-cli plugins install frser-sqlite-datasource
+
+# Hacer persistente la DB (montada desde host)
+VOLUME ["/var/lib/grafana", "/db"]
+
+# Puerto por defecto
+EXPOSE 3000
