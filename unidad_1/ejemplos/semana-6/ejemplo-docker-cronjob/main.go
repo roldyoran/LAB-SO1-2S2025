@@ -36,14 +36,14 @@ func crearCronJob() {
 	// Agregar cronjob (cada minuto)
 	cronCommand := fmt.Sprintf("* * * * * %s", script)
 	cmd := exec.Command("bash", "-c", fmt.Sprintf("(crontab -l 2>/dev/null; echo \"%s\") | crontab -", cronCommand))
-	
+
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Fatalf("Error agregando cronjob: %v, output: %s", err, string(output))
 	}
 
 	log.Printf("Cronjob creado correctamente: %s", cronCommand)
-	
+
 	// Verificar que se agregó correctamente
 	verifyCmd := exec.Command("crontab", "-l")
 	verifyOutput, err := verifyCmd.CombinedOutput()
@@ -56,6 +56,12 @@ func crearCronJob() {
 
 func iniciarContenedor(nombre string) {
 	cmd := exec.Command("docker", "start", nombre)
+
+	// Establecer el directorio de trabajo del comando
+	// Esto le dice al comando cmd que se ejecute en la ruta especificada
+	// ruta_carpeta := "su/ruta/a/su/carpeta"
+	// cmd.Dir = ruta_carpeta
+
 	if err := cmd.Run(); err != nil {
 		log.Printf("Error iniciando contenedor %s: %v", nombre, err)
 	} else {
