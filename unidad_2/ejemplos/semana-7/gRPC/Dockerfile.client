@@ -6,7 +6,7 @@ RUN go mod download
 
 COPY . .
 WORKDIR /app/client
-RUN go build -o client
+RUN go build -o client client.go
 
 FROM alpine:3.22
 WORKDIR /root/
