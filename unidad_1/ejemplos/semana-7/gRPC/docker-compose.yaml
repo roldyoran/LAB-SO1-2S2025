@@ -1,0 +1,19 @@
+
+services:
+  grpc-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: grpc-tweet-server
+    ports:
+      - "50051:50051"
+
+  grpc-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: grpc-tweet-client
+    depends_on:
+      - grpc-server
+    environment:
+      - GRPC_SERVER_ADDR=grpc-server:50051
