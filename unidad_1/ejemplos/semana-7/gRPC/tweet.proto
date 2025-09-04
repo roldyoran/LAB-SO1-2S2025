@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package tweet;
+
+option go_package = "./proto";
+
+// Mensaje que se enviará
+message TweetRequest {
+  string description = 1;
+  string country = 2;
+  string weather = 3;
+}
+
+// Respuesta del servidor
+message TweetResponse {
+  string status = 1;
+}
+
+// Servicio gRPC
+service TweetService {
+  rpc SendTweet (TweetRequest) returns (TweetResponse);
+}
