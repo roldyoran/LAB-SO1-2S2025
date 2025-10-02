@@ -26,7 +26,7 @@ COPY --from=builder --chown=app_user:app_user /app/target/release/api_rust ./api
 EXPOSE 8080
 
 # Agregar variable de entorno para la URL del servidor gRPC
-ENV GRPC_SERVER_URL=server-go-service:50051
+ENV GRPC_SERVER_URL=http://server-go-service:50051
 
 RUN adduser -D app_user
 USER app_user

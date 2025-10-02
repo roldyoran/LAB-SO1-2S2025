@@ -4,6 +4,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             ".weathertweet.WeatherTweetResponse",
             "#[derive(serde::Serialize, serde::Deserialize)]",
         )
-        .compile(&["proto/weathertweet.proto"], &["proto"])?;
+        .compile_protos(&["proto/weathertweet.proto"], &["proto"])?;
     Ok(())
 }

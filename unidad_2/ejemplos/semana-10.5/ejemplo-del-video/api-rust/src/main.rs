@@ -1,6 +1,6 @@
 use actix_web::{post, get, web, App, HttpResponse, HttpServer, Responder};
 use serde::{Deserialize, Serialize};
-use tonic::transport::Channel;
+// use tonic::transport::Channel;
 
 pub mod weathertweet {
     tonic::include_proto!("weathertweet");
@@ -28,8 +28,14 @@ async fn root() -> impl Responder {
 async fn clima(data: web::Json<WeatherInput>) -> impl Responder {
     println!("Rust API recibió JSON: {:?}", data);
 
+    // Cargar variables del .env (si existe)
+    let _ = dotenvy::dotenv().ok(); // Esto carga el archivo .env
+    
+
     // Usar variable de entorno o fallback a localhost para desarrollo local
-    let grpc_url = std::env::var("GRPC_SERVER_URL").unwrap_or_else(|_| "http://0.0.0.0:50051".to_string());
+    let grpc_url = std::env::var("GRPC_SERVER_URL")
+                    .unwrap_or("http://0.0.0.0:50051".to_string());
+    println!("Conectando a gRPC en: {}", grpc_url);
     
     let mut client = match WeatherTweetServiceClient::connect(grpc_url).await {
         Ok(c) => c,
@@ -46,6 +52,7 @@ async fn clima(data: web::Json<WeatherInput>) -> impl Responder {
     match client.send_tweet(request).await {
         Ok(response) => {
             let resp: WeatherTweetResponse = response.into_inner();
+            println!("Respuesta gRPC: {:?}", resp);
             HttpResponse::Ok().json(resp)
         }
         Err(e) => HttpResponse::InternalServerError().body(format!("Error gRPC: {}", e)),
@@ -54,6 +61,16 @@ async fn clima(data: web::Json<WeatherInput>) -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+     // Cargar .env al inicio de la aplicación
+    dotenvy::dotenv().ok();
+    
+    // Verificar que la variable se cargó correctamente
+    match std::env::var("GRPC_SERVER_URL") {
+        Ok(url) => println!("✅ Variable GRPC_SERVER_URL cargada: {}", url),
+        Err(_) => println!("⚠️  GRPC_SERVER_URL no encontrada, usando valor por defecto"),
+    }
+    
+    
     println!("🚀 Rust REST API corriendo en http://0.0.0.0:8080");
     HttpServer::new(|| {
         App::new()
