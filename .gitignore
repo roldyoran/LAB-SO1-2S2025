@@ -6,3 +6,6 @@ unidad_1/ejemplos/semana-4/modulo-kernel/infocuatro.c
 unidad_1/ejemplos/semana-4/modulo-kernel/infotres.c
 unidad_1/ejemplos/semana-4/modulo-kernel/pruebamem.c
 cua.proto
+
+venv
+__pycache__
