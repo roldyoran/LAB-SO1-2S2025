@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clima-app
+  namespace: clima-app
+  labels:
+    app: clima-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clima-app
+  template:
+    metadata:
+      labels:
+        app: clima-app
+    spec:
+      containers:
+      - name: clima-app
+        image: gcr.io/YOUR_PROJECT_ID/clima-app:latest
+        env:
+        - name: KAFKA_BROKER
+          value: "kafka-service:9092"
+        - name: RABBITMQ_URL
+          value: "amqp://guest:guest@rabbitmq-service:5672/"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        # Health checks
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ps aux | grep '[m]ain' || exit 1"
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ps aux | grep '[m]ain' || exit 1"
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clima-app-service
+  namespace: clima-app
+  labels:
+    app: clima-app
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: clima-app
