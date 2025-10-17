@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	time "time"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
@@ -37,6 +38,7 @@ func main() {
 	go func() {
 		for d := range msgs {
 			fmt.Printf("✅ [RabbitMQ] Mensaje recibido: %s\n", d.Body)
+			// agregar logica para ingresar en valkey
 			time.Sleep(2 * time.Second) // Simular procesamiento
 		}
 	}()
